@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aghes-teams-monitor"
+dependencies = [
+    "requests>=2.34.2",
+    "pillow>=12.2.0",
+    "python-dotenv>=1.2.2",
+]
+authors = [{name = "Zachary Collins", email = "zacharym.collins@agcocorp.com"}]
+keywords = [
+    "Teams", 
+    "Monitoring", 
+    "Logging"
+]
+license = "Proprietary"
+readme = "README.md"
+requires-python = ">=3.13.7"
+classifiers = [
+    "Development status :: 0 - Alpha",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = ["ipython"]
+
+[tool.setuptools.packages.find]
+where = ["."]
