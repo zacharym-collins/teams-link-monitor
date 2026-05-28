@@ -20,11 +20,15 @@ aghes-teams-monitor/
 ├── pyproject.toml
 ├── README.md
 │
-└── app/
-    ├── __init__.py
-    ├── notifier.py
-    ├── payload.py
-    └── screenshot.py
+├── app/
+│    ├── __init__.py
+│    ├── notifier.py
+│    ├── payload.py
+│    └── screenshot.py
+│
+└── tests/
+    ├── conftest.py
+    ├── test_payload.py
 ```
 
 ### Prerequisites: Microsoft Teams Setup
