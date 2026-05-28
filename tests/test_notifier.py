@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pytest
 
-from app.notifier import TeamsNotifier
+from teams_alert_link.notifier import TeamsNotifier
 
 # A dummy webhook URL that matches the pattern expected by the class
 FAKE_WEBHOOK = "https://mock.webhook.office.com/webhookb2/test-token"
@@ -24,7 +24,7 @@ def test_notifier_initialization_from_env():
 
 def test_notifier_initialization_missing_url_raises_error():
     """Verify that a ValueError is raised immediately if no URL is found anywhere."""
-    with patch("app.notifier.load_dotenv") as mock_load:
+    with patch("teams_alert_link.notifier.load_dotenv") as mock_load:
         with patch.dict(os.environ, {}, clear=True):
             with pytest.raises(ValueError, match="Teams Webhook URL missing"):
                 TeamsNotifier()
@@ -36,7 +36,7 @@ def test_send_error_success(requests_mock):
     requests_mock.post(FAKE_WEBHOOK, status_code=200, text="1")
     
     notifier = TeamsNotifier(webhook_url=FAKE_WEBHOOK)
-    success = notifier.send_error("SAP_Test", "An error occurred")
+    success = notifier.send_error("SAMPLE_Test", "An error occurred")
     
     assert success is True
     assert requests_mock.called
@@ -48,7 +48,7 @@ def test_send_error_server_rejection(requests_mock):
     """Verify that if Teams rejects the payload (e.g., status 400), the method returns False."""
     requests_mock.post(FAKE_WEBHOOK, status_code=400, text="Summary text is required.")
     notifier = TeamsNotifier(webhook_url=FAKE_WEBHOOK)
-    success = notifier.send_error("SAP_Test", "Bad layout error")
+    success = notifier.send_error("SAMPLE_Test", "Bad layout error")
     
     assert success is False
 
@@ -59,6 +59,6 @@ def test_send_error_network_timeout(requests_mock):
     # Simulate a dead socket connection exception
     requests_mock.post(FAKE_WEBHOOK, exc=requests.exceptions.ConnectTimeout)
     notifier = TeamsNotifier(webhook_url=FAKE_WEBHOOK)
-    success = notifier.send_error("SAP_Test", "Timeout test")
+    success = notifier.send_error("SAMPLE_Test", "Timeout test")
     
     assert success is False
