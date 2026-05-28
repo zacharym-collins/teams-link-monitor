@@ -34,7 +34,7 @@ def test_capture_desktop_state_fallback_on_permission_error(clean_env):
     invalid_dir = Path("I:/An/Invalid/Drive/Path/That/Doesnt/Exist/*?/")
     script_name = "SAP_Fallback_Test"
     
-    with patch.dict(os.environ, {"SAP_MONITOR_OUTPUT_DIR": invalid_dir.as_posix()}):
+    with patch.dict(os.environ, {"TEAMS_MONITOR_OUTPUT_DIR": invalid_dir.as_posix()}):
         filename, filepath = capture_desktop_state(script_name)
         
         expected_fallback_path = Path.cwd() / filename

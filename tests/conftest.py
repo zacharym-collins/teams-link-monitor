@@ -18,5 +18,5 @@ def base_payload():
 def clean_env(tmp_path):
     """Fixture to mock the environment variable path to a safe, temporary directory."""
     temp_dir = str(tmp_path)
-    with patch.dict(os.environ, {"SAP_MONITOR_OUTPUT_DIR": temp_dir}):
+    with patch.dict(os.environ, {"TEAMS_MONITOR_OUTPUT_DIR": temp_dir}):
         yield temp_dir
