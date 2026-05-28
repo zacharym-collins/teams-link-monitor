@@ -2,7 +2,7 @@ import os
 import requests
 
 from dotenv import load_dotenv
-from teams_notifier.payload import AdaptiveCardPayload
+from teams_alert_link.payload import AdaptiveCardPayload
 
 class TeamsNotifier:
     def __init__(self, webhook_url=None):

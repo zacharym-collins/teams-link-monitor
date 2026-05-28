@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "aghes-teams-monitor"
+name = "teams-alert-link"
 dependencies = [
     "requests>=2.34.2",
     "pillow>=12.2.0",

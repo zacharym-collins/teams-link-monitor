@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pytest
 
-from teams_notifier.payload import AdaptiveCardPayload
+from teams_alert_link.payload import AdaptiveCardPayload
 
 @pytest.fixture
 def base_payload():
