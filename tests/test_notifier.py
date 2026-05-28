@@ -24,9 +24,10 @@ def test_notifier_initialization_from_env():
 
 def test_notifier_initialization_missing_url_raises_error():
     """Verify that a ValueError is raised immediately if no URL is found anywhere."""
-    with patch.dict(os.environ, {}, clear=True):
-        with pytest.raises(ValueError, match="Teams Webhook URL missing"):
-            TeamsNotifier()
+    with patch("app.notifier.load_dotenv") as mock_load:
+        with patch.dict(os.environ, {}, clear=True):
+            with pytest.raises(ValueError, match="Teams Webhook URL missing"):
+                TeamsNotifier()
 
 
 def test_send_error_success(requests_mock):
