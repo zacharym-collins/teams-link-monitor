@@ -23,7 +23,7 @@ def test_capture_desktop_state_creates_missing_directory(tmp_path):
     """
     nested_missing_dir = tmp_path / "nested" / "logs" / "folder"
     script_name = "SAP_Missing_Dir_Test"
-    with patch.dict(os.environ, {"SAP_MONTIOR_OUTPUT_DIR:": nested_missing_dir.as_posix()}):
+    with patch.dict(os.environ, {"TEAMS_MONITOR_OUTPUT_DIR": nested_missing_dir.as_posix()}):
         assert not nested_missing_dir.exists()
         _, filepath = capture_desktop_state(script_name)
         assert nested_missing_dir.exists()
