@@ -22,3 +22,13 @@ def test_payload_body_with_screenshot(base_payload):
     body = result["attachments"][0]["content"]["body"]
     assert len(body) == 4
     assert "Visual Proof Saved To:" in body[3]["text"]
+
+def test_windows_path_backslash_sanitization(base_payload):
+    """Ensures Windows backslashes are normalized to forward slashes for the JSON payload."""
+    windows_path = "C:\\Users\\myusername\\OneDrive\\fail.png"
+    expected_clean_path = "C:/Users/myusername/OneDrive/fail.png"
+    result = base_payload.build(screenshot_path=windows_path)
+    body = result["attachments"][0]["content"]["body"]
+    last_block_text = body[3]["text"]
+    assert expected_clean_path in last_block_text
+    assert windows_path not in last_block_text
