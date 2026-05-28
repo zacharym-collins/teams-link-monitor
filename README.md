@@ -29,6 +29,7 @@ aghes-teams-monitor/
 └── tests/
     ├── conftest.py
     ├── test_payload.py
+    └── test_screenshot.py
 ```
 
 ### Prerequisites: Microsoft Teams Setup
