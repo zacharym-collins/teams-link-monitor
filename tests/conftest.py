@@ -8,5 +8,5 @@ def base_payload():
     return AdaptiveCardPayload(
         script_name="SAP_Test_Script",
         error_message="Connection lost to session 0",
-        timestampe="2026-05-28 12:00:00"
+        timestamp="2026-05-28 12:00:00"
     )
