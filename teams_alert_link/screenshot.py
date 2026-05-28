@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
+from loguru import logger
 from PIL import ImageGrab
 
 def capture_desktop_state(script_name):
@@ -13,6 +14,7 @@ def capture_desktop_state(script_name):
     try:
         output_dir.mkdir(parents=True, exist_ok=True)
     except Exception:
+        logger.warning("Failed to create MONITOR_OUTPUT_DIR. Falling back to current working directory.")
         output_dir = Path.cwd()
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -24,5 +26,5 @@ def capture_desktop_state(script_name):
         screenshot.save(filepath)
         return filename, str(filepath)
     except Exception as e:
-        print(f"Failed to capture screenshot: {e}")
+        logger.exception("Failed to capture desktop screenshot state.")
         return None, None

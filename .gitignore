@@ -2,6 +2,8 @@
 .venv/
 .git/
 __pycache__/
+teams_alert_link.egg-info/
+.pytest_cache/
 
 # Config and Files
 .env

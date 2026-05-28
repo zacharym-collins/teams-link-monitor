@@ -8,6 +8,7 @@ dependencies = [
     "requests>=2.34.2",
     "pillow>=12.2.0",
     "python-dotenv>=1.2.2",
+    "loguru>=0.7.3",
 ]
 authors = [{name = "Zachary Collins", email = "zacharym.collins@agcocorp.com"}]
 keywords = [
@@ -15,7 +16,7 @@ keywords = [
     "Monitoring", 
     "Logging"
 ]
-license = "Proprietary"
+license = {file = "LICENSE"}
 readme = "README.md"
 requires-python = ">=3.13.7"
 classifiers = [
