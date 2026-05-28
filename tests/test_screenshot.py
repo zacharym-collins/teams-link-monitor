@@ -6,7 +6,7 @@ from teams_notifier.screenshot import capture_desktop_state
 
 def test_capture_desktop_state_creates_file(clean_env):
     """Verify that a physical screenshot file is generated and matches naming rules."""
-    script_name = "SAP_Test_Run"
+    script_name = "SAMPLE_Test_Run"
     filename, filepath = capture_desktop_state(script_name)
 
     assert filename is not None
@@ -22,7 +22,7 @@ def test_capture_desktop_state_creates_missing_directory(tmp_path):
     doesn't exist yet.
     """
     nested_missing_dir = tmp_path / "nested" / "logs" / "folder"
-    script_name = "SAP_Missing_Dir_Test"
+    script_name = "SAMPLE_Missing_Dir_Test"
     with patch.dict(os.environ, {"TEAMS_MONITOR_OUTPUT_DIR": nested_missing_dir.as_posix()}):
         assert not nested_missing_dir.exists()
         _, filepath = capture_desktop_state(script_name)
@@ -32,7 +32,7 @@ def test_capture_desktop_state_creates_missing_directory(tmp_path):
 def test_capture_desktop_state_fallback_on_permission_error(clean_env):
     """Verify that if the environment path is completely broken or locked down, it falls back to os.getcwd()."""
     invalid_dir = Path("I:/An/Invalid/Drive/Path/That/Doesnt/Exist/*?/")
-    script_name = "SAP_Fallback_Test"
+    script_name = "SAMPLE_Fallback_Test"
     
     with patch.dict(os.environ, {"TEAMS_MONITOR_OUTPUT_DIR": invalid_dir.as_posix()}):
         filename, filepath = capture_desktop_state(script_name)

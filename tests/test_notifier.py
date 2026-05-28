@@ -36,7 +36,7 @@ def test_send_error_success(requests_mock):
     requests_mock.post(FAKE_WEBHOOK, status_code=200, text="1")
     
     notifier = TeamsNotifier(webhook_url=FAKE_WEBHOOK)
-    success = notifier.send_error("SAP_Test", "An error occurred")
+    success = notifier.send_error("SAMPLE_Test", "An error occurred")
     
     assert success is True
     assert requests_mock.called
@@ -48,7 +48,7 @@ def test_send_error_server_rejection(requests_mock):
     """Verify that if Teams rejects the payload (e.g., status 400), the method returns False."""
     requests_mock.post(FAKE_WEBHOOK, status_code=400, text="Summary text is required.")
     notifier = TeamsNotifier(webhook_url=FAKE_WEBHOOK)
-    success = notifier.send_error("SAP_Test", "Bad layout error")
+    success = notifier.send_error("SAMPLE_Test", "Bad layout error")
     
     assert success is False
 
@@ -59,6 +59,6 @@ def test_send_error_network_timeout(requests_mock):
     # Simulate a dead socket connection exception
     requests_mock.post(FAKE_WEBHOOK, exc=requests.exceptions.ConnectTimeout)
     notifier = TeamsNotifier(webhook_url=FAKE_WEBHOOK)
-    success = notifier.send_error("SAP_Test", "Timeout test")
+    success = notifier.send_error("SAMPLE_Test", "Timeout test")
     
     assert success is False
