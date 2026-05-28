@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pytest
 
-from app.notifier import TeamsNotifier
+from teams_notifier.notifier import TeamsNotifier
 
 # A dummy webhook URL that matches the pattern expected by the class
 FAKE_WEBHOOK = "https://mock.webhook.office.com/webhookb2/test-token"
@@ -24,7 +24,7 @@ def test_notifier_initialization_from_env():
 
 def test_notifier_initialization_missing_url_raises_error():
     """Verify that a ValueError is raised immediately if no URL is found anywhere."""
-    with patch("app.notifier.load_dotenv") as mock_load:
+    with patch("teams_notifier.notifier.load_dotenv") as mock_load:
         with patch.dict(os.environ, {}, clear=True):
             with pytest.raises(ValueError, match="Teams Webhook URL missing"):
                 TeamsNotifier()
