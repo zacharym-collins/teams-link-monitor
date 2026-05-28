@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from unittest.mock import patch
 
-from aghes_teams_monitor.screenshot import capture_desktop_state
+from app.screenshot import capture_desktop_state
 
 def test_capture_desktop_state_creates_file(clean_env):
     """Verify that a physical screenshot file is generated and matches naming rules."""
