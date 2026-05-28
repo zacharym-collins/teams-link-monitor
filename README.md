@@ -199,7 +199,21 @@ notifier.send_error(
 )
 
 ```
+---
 
+## Diagnostic Logging
+
+`teams-link-monitor` uses `loguru` for internal diagnostic logging. To avoid hijacking your application's console layout, all internal library logs are **disabled by default**.
+
+If you need to view internal package diagnostics or troubleshoot network/screenshot failures, explicitly enable the library namespace in your application startup script:
+
+```python
+from loguru import logger
+import teams_link_monitor
+
+# Enable diagnostic logs for this package
+logger.enable("teams_link_monitor")
+```
 ---
 
 ## Security & Compliance Note
