@@ -28,6 +28,7 @@ aghes-teams-monitor/
 │
 └── tests/
     ├── conftest.py
+    ├── test_notifier.py
     ├── test_payload.py
     └── test_screenshot.py
 ```
