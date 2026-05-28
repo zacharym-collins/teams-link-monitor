@@ -1,6 +1,7 @@
 # Directories
 .venv/
 .git/
+__pycache__/
 
 # Config and Files
 .env
