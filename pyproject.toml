@@ -29,6 +29,7 @@ dynamic = ["version"]
 dev = [
     "ipython",
     "pytest>=9.0.3",
+    "requests_mock>=1.12.1",
 ]
 
 [tool.setuptools.packages.find]
