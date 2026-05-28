@@ -14,3 +14,11 @@ def test_payload_body_without_screenshot(base_payload):
     assert len(body) == 3 # Title, FactSet, Error Details
     assert body[0]["text"] == "CRITICAL ERROR DETECTED"
     assert body[0]["color"] == "Attention"
+
+def test_payload_body_with_screenshot(base_payload):
+    """Verify the body expands to 4 blocks when a screenshot path is appended."""
+    dummy_path = "C\\Logs\\fail.png"
+    result = base_payload.build(screenshot_path=dummy_path)
+    body = result["attachments"][0]["content"]["body"]
+    assert len(body) == 4
+    assert "Visual Proof Saved To:" in body[3]["text"]
