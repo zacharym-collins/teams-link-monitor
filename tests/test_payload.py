@@ -32,3 +32,10 @@ def test_windows_path_backslash_sanitization(base_payload):
     last_block_text = body[3]["text"]
     assert expected_clean_path in last_block_text
     assert windows_path not in last_block_text
+
+def test_custom_title_and_color_toggles(base_payload):
+    """Verify card style versatility by overriding default colors and headers."""
+    result = base_payload.build(color="Good", title="SCRIPT COMPLETED")
+    body = result["attachments"][0]["content"]["body"]
+    assert body[0]["text"] == "SCRIPT COMPLETED"
+    assert body[0]["color"] == "Good"
