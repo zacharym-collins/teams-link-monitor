@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "teams-alert-link"
+name = "teams-link-monitor"
 dependencies = [
     "requests>=2.34.2",
     "pillow>=12.2.0",
@@ -20,9 +20,8 @@ license = {file = "LICENSE"}
 readme = "README.md"
 requires-python = ">=3.13.7"
 classifiers = [
-    "Development status :: 0 - Alpha",
+    "Development Status :: 3 - Alpha",
     "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
 ]
 dynamic = ["version"]
 
@@ -36,3 +35,6 @@ dev = [
 
 [tool.setuptools.packages.find]
 where = ["."]
+
+[tool.setuptools.dynamic.version]
+attr = "teams_link_monitor.__version__"
