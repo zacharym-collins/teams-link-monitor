@@ -2,7 +2,7 @@
 .venv/
 .git/
 __pycache__/
-teams_alert_link.egg-info/
+teams_link_monitor.egg-info/
 .pytest_cache/
 dist/
 
