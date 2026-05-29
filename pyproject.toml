@@ -10,7 +10,7 @@ dependencies = [
     "python-dotenv>=1.2.2",
     "loguru>=0.7.3",
 ]
-authors = [{name = "Zachary Collins", email = "zacharym.collins@agcocorp.com"}]
+authors = [{name = "Zachary Collins", email = "zacharym.collins@outlook.com"}]
 keywords = [
     "Teams", 
     "Monitoring", 
@@ -31,6 +31,7 @@ dev = [
     "ipython",
     "pytest>=9.0.3",
     "requests_mock>=1.12.1",
+    "twine>=6.2.0",
 ]
 
 [tool.setuptools.packages.find]
