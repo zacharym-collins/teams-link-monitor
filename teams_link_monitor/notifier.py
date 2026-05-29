@@ -4,7 +4,7 @@ import requests
 from dotenv import load_dotenv
 from loguru import logger
 
-from teams_alert_link.payload import AdaptiveCardPayload
+from teams_link_monitor.payload import AdaptiveCardPayload
 
 class TeamsNotifier:
     def __init__(self, webhook_url=None):
