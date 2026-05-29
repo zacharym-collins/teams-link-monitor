@@ -4,6 +4,7 @@
 __pycache__/
 teams_alert_link.egg-info/
 .pytest_cache/
+dist/
 
 # Config and Files
 .env
